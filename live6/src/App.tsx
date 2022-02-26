@@ -9,6 +9,11 @@ import { AuthContext } from './contexts/Auth/AuthContext';
 function App() {
   const auth = useContext(AuthContext);
 
+  const handleLogout = async () => {
+    await auth.signout();
+    window.location.href = window.location.href;
+  };
+
   return (
     <div className="App">
       <header>
@@ -16,7 +21,11 @@ function App() {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/private">Privada</Link>
-          {auth.user && <a href="javascript:;">Sair</a>}
+          {auth.user && (
+            <a href="javascript:;" onClick={handleLogout}>
+              Sair
+            </a>
+          )}
         </nav>
       </header>
       <hr />
