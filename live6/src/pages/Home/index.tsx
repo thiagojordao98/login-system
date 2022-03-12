@@ -1,6 +1,10 @@
 import React from 'react';
-import styles from './styles'
+import * as C from './styles';
 
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <C.Container>Estou vermelho</C.Container>
+    </>
+  );
 };
